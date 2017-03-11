@@ -6,24 +6,21 @@
 package tools;
 
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import uHotDrawFramework.uDrawingView;
 import uhotdrawfigures.uPolylineFigure;
 import uhotdrawfigures.IFigure;
 import uhotdrawfigures.uAbstractFigure;
 
-
 /**
  *
  * @author Iván
  */
-
-public class uPolylineCreationTool extends uCreationTool {
+public class uPolylinePointCreationTool extends uCreationTool {
     
     uPolylineFigure polyFig;
     
-    public uPolylineCreationTool(uDrawingView drawingView, uAbstractFigure abstracFigure) {
+    public uPolylinePointCreationTool(uDrawingView drawingView, uAbstractFigure abstracFigure) {
         super(drawingView, abstracFigure);
     }
     
@@ -31,22 +28,23 @@ public class uPolylineCreationTool extends uCreationTool {
     public IFigure creationFigure (){
         return new uPolylineFigure();
     }
-
+    
+    @Override
+     public void mouseUp(MouseEvent e) {            // Esto en Drag y pinta libremente.
+        Point p = new Point(e.getX(),e.getY());
+        polyFig.getPuntos().add(new Point(p));
+        polyFig.displayBox().add(p);            // Actualizar el display box cuando añades nuevos puntos.
+    }
+     
      @Override
      public void mouseDown(MouseEvent e) {
+         if(polyFig==null){                     // Si no hay figura te la crea, si ya hay figura hace mouseUp
         polyFig = new uPolylineFigure();
         Point p = new Point (e.getX(), e.getY());
         polyFig.getPuntos().add(new Point(p));
         view.getDrawing().addFigure(polyFig); 
-        
+        }
      }
-     
-     @Override
-    public void mouseDrag(MouseEvent e) {            // Esto en Drag y pinta libremente.
-        Point p = new Point(e.getX(),e.getY());
-        polyFig.getPuntos().add(new Point(p));
-        
-    }
      
      public IFigure clone() throws CloneNotSupportedException{
          uPolylineFigure figure = null;
@@ -57,4 +55,5 @@ public class uPolylineCreationTool extends uCreationTool {
     
    
 }
+    
 

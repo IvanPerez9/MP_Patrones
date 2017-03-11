@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class uCompositeFigure extends uAbstractFigure {
     
-    private  List <IFigure> figures ;
+    public  List <IFigure> figures ;
     
     public uCompositeFigure(){
         figures = new ArrayList <IFigure>();  

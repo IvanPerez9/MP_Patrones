@@ -9,8 +9,10 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.List;
 import javax.swing.JPanel;
 import tools.ITools;
+import uhotdrawfigures.IFigure;
 
 /**
  *
@@ -20,6 +22,8 @@ public class uDrawingView extends JPanel implements MouseListener,MouseMotionLis
     
     private uDrawing drawing;
     public uDrawingEditor editor ;
+    // Ejercicio 47. Lista de figuras que sleccionamos con el mouse
+    public List<IFigure> seleccion;
     
     public uDrawingView(){
         this.addMouseListener(this);
@@ -95,6 +99,25 @@ public class uDrawingView extends JPanel implements MouseListener,MouseMotionLis
         
     }
 
+    /* ----------------------------- ejercicio 47 -------------------------------- */
+    
+    public void clearSelection(){
+        seleccion.clear();
+    }
+    
+    public void addToSelection(IFigure f){
+        seleccion.add(f);
+    }
+    
+    public void cambiarSelection(){
+        for (IFigure f : seleccion){
+            f.setSize (100,100);
+        }
+    }
+
+    public List<IFigure> getSeleccion() {
+        return seleccion;
+    }
     
     
     

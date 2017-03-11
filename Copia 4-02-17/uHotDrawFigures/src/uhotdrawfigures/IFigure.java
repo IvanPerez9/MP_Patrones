@@ -20,5 +20,6 @@ public interface IFigure {
     public Rectangle displayBox();
     //------------------------
     public IFigure clone();
+    public void setSize(int x,int y);
     
 }

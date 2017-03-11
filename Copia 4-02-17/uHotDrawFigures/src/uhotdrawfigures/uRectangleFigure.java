@@ -37,4 +37,10 @@ public class uRectangleFigure extends uAbstractFigure {
         super();
         caja = new Rectangle(x, y, w, h);
     }
+    
+    // PAra que sea de tipo 
+    @Override
+    public IFigure clone() {
+        return new uRectangleFigure(this);
+    }
 }

@@ -42,7 +42,8 @@ public class principal {
         uDrawingView v = new uDrawingView();
         
         uDrawing d = new uDrawing();
-        uRectangleFigure f1 = new uRectangleFigure();
+        
+        /*uRectangleFigure f1 = new uRectangleFigure();
         uEllipseFigure f2 = new uEllipseFigure();
          
         Rectangle cajaf2 = new Rectangle(50, 50, 60, 60);
@@ -53,37 +54,41 @@ public class principal {
         
         d.addFigure(f1);
         d.addFigure(f2);
-        
+        */
         v.setDrawing(d);
         
         
-        v.setPreferredSize(new Dimension(320, 240));
+        //v.setPreferredSize(new Dimension(320, 240));
+        v.setBounds(750, 250, 550, 550);
         
         uDrawingEditor e = new uDrawingEditor();
         //e.setDrawingView(v);
         // Esta ultima linea se carga la e, por eso no la ponemos más. La v es nueva.
         
         // 29
-        
+        /*
         uEllipseFigure f3 = new uEllipseFigure();
         Rectangle cajaf3 = new Rectangle(100, 100, 80, 80);
         f3.setCaja(cajaf3);
-        
+        */
         // decorator
+        /*
         uBorderDecorateFigure borde = new uBorderDecorateFigure();
         borde.setInnerFigure(f3);
         d.addFigure(borde);
+        /*
         
+        */
         // 37 OJO
         
-        e.getView().setDrawing(d); 
+        e.getDrawingView().setDrawing(d); 
         
         //e.getView().setDrawing(d);
         
         e.setVisible(true);
         e.pack();
         
-        e.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        e.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Que se cierre al darle a la X
    
     }
     

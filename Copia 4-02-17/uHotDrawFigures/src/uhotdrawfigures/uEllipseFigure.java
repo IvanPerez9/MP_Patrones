@@ -24,11 +24,25 @@ public class uEllipseFigure extends uAbstractFigure {
         
     }
     
+    public uEllipseFigure(uAbstractFigure f){
+        
+        super();
+        caja= new Rectangle(f.getCaja());
+        
+    }
+    
     public uEllipseFigure(int x, int y, int w, int h){
         super();
-        caja = new Rectangle(x, y, w, h); // PReguntar porque con caja !!!
+        caja = new Rectangle(x, y, w, h); // Preguntar porque con caja !!!
     }
     
     public uEllipseFigure(){ super();}
+    
+    
+    @Override
+    public IFigure clone() {
+        return new uEllipseFigure(this); // A la hora de hacer la elipse porque los 4 int y no nada.
+        // Hace las elipse traidas desde la interfaz
+    }
     
 }

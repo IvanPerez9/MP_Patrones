@@ -5,10 +5,13 @@
  */
 package tools;
 
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import uHotDrawFramework.uDrawingView;
 import uhotdrawfigures.IFigure;
 import uhotdrawfigures.uAbstractFigure;
+import uhotdrawfigures.uRectangleFigure;
 
 /**
  *
@@ -31,12 +34,16 @@ public class uCreationTool extends uAbstractTool {
 
     @Override
     public void mouseDown(MouseEvent e) {
-        
+       // System.out.println("MouseDown");
     }
 
     @Override
     public void mouseUp(MouseEvent e) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        IFigure f= creationFigure();     // Cambiar esto para que coja cualquiera de las figuras
+        Rectangle r=f.displayBox();
+        Point p=new Point(e.getX()-r.x,e.getY()-r.y);
+        f.moveBy(p.getX(),p.getY());
+        view.getDrawing().addFigure(f);
     }
 
     @Override

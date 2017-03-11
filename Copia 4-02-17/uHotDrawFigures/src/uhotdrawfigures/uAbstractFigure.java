@@ -66,12 +66,17 @@ public class uAbstractFigure implements IFigure {
     }
 
     // Nuevo metodo ejercicio 37
+    
     @Override
     public IFigure clone() {
-        return new uRectangleFigure(this);
+        return null;
     }
 
+    // Ejercicio 47. Más adelante añadir notifyObservers();
     
+    public void setSize(int x, int y){
+        caja.setSize(x, y);
+    }
 
     
     
