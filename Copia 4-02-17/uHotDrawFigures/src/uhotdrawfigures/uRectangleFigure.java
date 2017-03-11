@@ -18,9 +18,8 @@ public class uRectangleFigure extends uAbstractFigure {
     @Override
     public void draw (Graphics rect){
         
-        rect.setColor(Color.green);
-        Rectangle cajaLocal = getCaja();
-        rect.drawRect(cajaLocal.x , cajaLocal.y , cajaLocal.width , cajaLocal.height);   
+        rect.setColor(Color.orange);
+        rect.drawRect(caja.x , caja.y , caja.width , caja.height);   // Pillar la caja creada en la figura
     }
     
     public uRectangleFigure(uAbstractFigure f){

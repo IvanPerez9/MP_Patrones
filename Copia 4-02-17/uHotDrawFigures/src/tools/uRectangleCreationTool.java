@@ -20,7 +20,7 @@ public class uRectangleCreationTool extends uAbstractTool {
 
     @Override
     public void mouseUp(MouseEvent e) {
-        IFigure f=new uRectangleFigure();
+        IFigure f=new uRectangleFigure(0,0,20,30);      // Le dices las dimensiones que pintar
         Rectangle r=f.displayBox();
         Point p=new Point(e.getX()-r.x,e.getY()-r.y);
         f.moveBy(p.getX(),p.getY());
@@ -33,17 +33,17 @@ public class uRectangleCreationTool extends uAbstractTool {
     
     @Override
     public void mouseDown(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseMove(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseDrag(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
