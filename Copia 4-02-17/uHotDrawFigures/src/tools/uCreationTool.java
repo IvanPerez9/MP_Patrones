@@ -16,7 +16,7 @@ import uhotdrawfigures.uAbstractFigure;
  */
 public class uCreationTool extends uAbstractTool {
     
-    public IFigure prototype ;
+    public uAbstractFigure prototype ;
     
     public IFigure creationFigure(){
         return prototype.clone();
@@ -36,7 +36,7 @@ public class uCreationTool extends uAbstractTool {
 
     @Override
     public void mouseUp(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

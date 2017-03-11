@@ -29,6 +29,7 @@ public class uDrawingEditor extends JFrame implements ActionListener {
     private List <uAbstractFigure> tools;
     private ITools currentTool;
     private ITools rT,eT;
+    public  JButton b4,b5;
     // private editor 
     
     
@@ -63,18 +64,20 @@ public class uDrawingEditor extends JFrame implements ActionListener {
     public uDrawingEditor(){
         super();
         JPanel barraHerramientas = new JPanel();
-        JButton b4 = new JButton("Rectangle");
+        b4 = new JButton("Rectangle");
         b4.setActionCommand("r");
         b4.addActionListener(this);
         barraHerramientas.add(b4);
-        JButton b5 = new JButton("Ellipse");
+        b5 = new JButton("Ellipse");
         b5.setActionCommand("e");
         b5.addActionListener(this);
         barraHerramientas.add(b5);
 
         view=new uDrawingView();
         view.setEditor(this);
-        this.getContentPane().setLayout(new BorderLayout());        this.getContentPane().add(barraHerramientas, BorderLayout.NORTH);
+        
+        this.getContentPane().setLayout(new BorderLayout());        
+        this.getContentPane().add(barraHerramientas, BorderLayout.NORTH);
         this.getContentPane().add((uDrawingView)view, BorderLayout.CENTER);
 
         this.setVisible(true);
@@ -82,8 +85,9 @@ public class uDrawingEditor extends JFrame implements ActionListener {
         
         rT = new uRectangleCreationTool(this.getView());
         
-        rT=new uCreationTool(this.getView(),new uRectangleFigure(0,0,10,10));
-        eT=new uCreationTool(this.getView(),new uEllipseFigure(0,0,10,10));
+        // quitarlo para que pinte el rectangulo de primeras.
+        // rT=new uCreationTool(this.getView(),new uRectangleFigure(0,0,10,10));
+       // eT=new uCreationTool(this.getView(),new uEllipseFigure(0,0,10,10));
         currentTool=rT;
 
     }
@@ -91,7 +95,7 @@ public class uDrawingEditor extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if ("e".equals(e.getActionCommand())) {
-            //setCurrentTool(eT);
+            setCurrentTool(eT);
         }
         if ("r".equals(e.getActionCommand())) {
             setCurrentTool(rT);

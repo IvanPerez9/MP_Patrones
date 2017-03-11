@@ -21,6 +21,11 @@ public class uDrawingView extends JPanel implements MouseListener,MouseMotionLis
     private uDrawing drawing;
     public uDrawingEditor editor ;
     
+    public uDrawingView(){
+        this.addMouseListener(this);
+        this.addMouseMotionListener(this);
+    }
+    
     public void setDrawing(uDrawing v){
         drawing = v;
     }
@@ -29,6 +34,7 @@ public class uDrawingView extends JPanel implements MouseListener,MouseMotionLis
         return drawing;
     }
     
+    @Override
     public void paint(Graphics g){
         drawing.draw(g);
     }
@@ -69,13 +75,11 @@ public class uDrawingView extends JPanel implements MouseListener,MouseMotionLis
     }
 
     @Override
-    public void mouseEntered(MouseEvent aEvent) {
-        
+    public void mouseEntered(MouseEvent aEvent) { 
     }
 
     @Override
-    public void mouseExited(MouseEvent aEvent) {
-        
+    public void mouseExited(MouseEvent aEvent) {  
     }
 
     @Override
@@ -88,6 +92,7 @@ public class uDrawingView extends JPanel implements MouseListener,MouseMotionLis
     public void mouseMoved(MouseEvent aEvent) {
         tool().mouseMove(aEvent);
         editor.repaint();
+        
     }
 
     
