@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import tools.ITools;
 import tools.uCreationTool;
+import tools.uElipseCreationTool;
 import tools.uRectangleCreationTool;
 import uhotdrawfigures.uAbstractFigure;
 import uhotdrawfigures.uEllipseFigure;
@@ -28,8 +29,8 @@ public class uDrawingEditor extends JFrame implements ActionListener {
     private uDrawingView view;
     private List <uAbstractFigure> tools;
     private ITools currentTool;
-    private ITools rT,eT;
-    public  JButton b4,b5;
+    private ITools rT,eT,pL;
+    public  JButton b4,b5,b6;
     // private editor 
     
     
@@ -72,6 +73,10 @@ public class uDrawingEditor extends JFrame implements ActionListener {
         b5.setActionCommand("e");
         b5.addActionListener(this);
         barraHerramientas.add(b5);
+        b6 = new JButton("PolyLine");
+        b6.setActionCommand("p");
+        b6.addActionListener(this);
+        
 
         view=new uDrawingView();
         view.setEditor(this);
@@ -84,11 +89,14 @@ public class uDrawingEditor extends JFrame implements ActionListener {
         this.pack();
         
         rT = new uRectangleCreationTool(this.getView());
+        eT = new uElipseCreationTool(this.getView());
+        // pL = new 
         
         // quitarlo para que pinte el rectangulo de primeras.
         // rT=new uCreationTool(this.getView(),new uRectangleFigure(0,0,10,10));
        // eT=new uCreationTool(this.getView(),new uEllipseFigure(0,0,10,10));
-        currentTool=rT;
+       
+        currentTool=rT;                                                         // Herramienta seleccionada por defecto.
 
     }
     
