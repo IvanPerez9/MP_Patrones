@@ -9,7 +9,9 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import uHotDrawFramework.uDrawingView;
 import uhotdrawfigures.IFigure;
+import uhotdrawfigures.uRectangleFigure;
 
 /**
  *
@@ -17,7 +19,12 @@ import uhotdrawfigures.IFigure;
  */
 public class uAbstractHandle implements Handle {
 
+    IFigure owner = null; // Para guardar el enlace a objeto propietario
+    uRectangleFigure handle = null;
+    uDrawingView view;
+
     
+    public IFigure getHandle(){return handle;}
     
     @Override
     public IFigure owner() {
