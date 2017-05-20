@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.List;
 import javax.swing.JPanel;
+import listener.DrawingListener;
 import tools.ITools;
 import uhotdrawfigures.IFigure;
 
@@ -18,7 +19,7 @@ import uhotdrawfigures.IFigure;
  *
  * @author Iván
  */
-public class uDrawingView extends JPanel implements MouseListener,MouseMotionListener{
+public class uDrawingView extends JPanel implements MouseListener,MouseMotionListener,DrawingListener{
     
     private uDrawing drawing;
     public uDrawingEditor editor ;
@@ -117,6 +118,14 @@ public class uDrawingView extends JPanel implements MouseListener,MouseMotionLis
 
     public List<IFigure> getSeleccion() {
         return seleccion;
+    }
+
+    
+    // Patron Observer
+    
+    @Override
+    public void drawingChanged() {
+        editor.repaint();
     }
     
     

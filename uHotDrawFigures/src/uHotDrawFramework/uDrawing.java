@@ -9,13 +9,14 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import listener.FigureListener;
 import uhotdrawfigures.IFigure;
 
 /**
  *
  * @author Iván
  */
-public class uDrawing extends uhotdrawfigures.uCompositeFigure {
+public class uDrawing extends uhotdrawfigures.uCompositeFigure implements FigureListener {
     
     public uDrawing(){
         super();
@@ -50,5 +51,12 @@ public class uDrawing extends uhotdrawfigures.uCompositeFigure {
                 figuras.add(f);
         }
         return figuras;
+    }
+    
+    // Patrón Observer
+    
+    @Override
+    public void figureChanged(){
+       //notifyObservers(); 
     }
 }
